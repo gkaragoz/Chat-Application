@@ -14,6 +14,10 @@ io.on('connection', function (socket) {
   console.log('total online users: ' + clientCount);
   io.emit('request onlines', clientCount);
 
+  socket.on('nickname', function (nickname){
+    console.log('nickname: ', nickname);
+  });
+
   socket.on('chat message', function (msg) {
     io.emit('chat message', msg);
   });
@@ -21,7 +25,7 @@ io.on('connection', function (socket) {
   socket.on('disconnect', function () {
     console.log('user disconnected');
     clientCount--;
-    console.log('total online users: ' + clientCount)
+    console.log('total online users: ' + clientCount);
   });
 });
 
