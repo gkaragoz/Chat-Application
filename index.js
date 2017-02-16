@@ -12,8 +12,9 @@ io.on('connection', function (socket) {
   console.log('a user connected');
   clientCount++;
   console.log('total online users: ' + clientCount);
-  io.emit('request onlines', clientCount);
 
+  io.emit('request onlines', clientCount); 
+  
   socket.on('nickname', function (nickname){
     console.log('nickname: ', nickname);
   });
