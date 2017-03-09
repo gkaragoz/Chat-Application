@@ -46,7 +46,14 @@
 	<script>
 		$(function(){
 			var socket = io.connect();
-			console.log('baglancam');
+			var $messageForm = $('#messageForm');
+			var $message = $('#message');
+			var $chat = $('#chat');
+
+			$messageForm.submit(function(e){
+				e.preventDefault();
+				console.log('Submitted');
+			});
 		});
 	</script>
 </body>
