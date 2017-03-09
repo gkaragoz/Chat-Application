@@ -57,7 +57,7 @@
 			});
 
 			socket.on('new message', function(data){
-				console.log('Received a new message: ' + data.msg);
+				$chat.append('<div class="well">' +data.msg+'</div>');
 			});
 		});
 	</script>

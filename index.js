@@ -19,7 +19,6 @@ io.sockets.on('connection', function(socket){
     console.log('Total connections: ' + connections.length);
 
     socket.on('send message', function(data){
-        console.log('Message received: ' + data);
         io.sockets.emit('new message', {msg: data});
     });
 
