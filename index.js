@@ -18,6 +18,11 @@ io.sockets.on('connection', function(socket){
     connections.push(socket);
     console.log('Total connections: ' + connections.length);
 
+    socket.on('send message', function(data){
+        console.log('Message received: ' + data);
+        io.sockets.emit('new message', {msg: data});
+    });
+
     socket.on('disconnect', function(data){
         console.log('Someone is disconnected.');
         connections.splice(connections.indexOf(socket), 1);

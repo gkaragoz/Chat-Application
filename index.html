@@ -52,7 +52,12 @@
 
 			$messageForm.submit(function(e){
 				e.preventDefault();
-				console.log('Submitted');
+				socket.emit('send message', $message.val());
+				$message.val('');
+			});
+
+			socket.on('new message', function(data){
+				console.log('Received a new message: ' + data.msg);
 			});
 		});
 	</script>
